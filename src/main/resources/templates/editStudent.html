@@ -1,0 +1,8 @@
+<tr>
+
+    <td><input class="form-control" type="text" name ="fullname" th:attr="value=${student.getFullname()}"></td>
+    <td><input class="form-control" type="date" name="dob" th:attr="value=${student.getDob()}"></td>
+    <td><input class="form-control" type="hidden" name="id" th:attr="value=${student.getId()}"></td>
+    <td><button class="btn btn-primary mt-3" hx-post="/updateStudent" hx-target="body" hx-swap="outerHTML"  hx-include="closest tr" >Save</button></td>
+
+</tr>

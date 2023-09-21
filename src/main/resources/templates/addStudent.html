@@ -1,0 +1,14 @@
+   <table class="m-4">
+    <tr>
+        <th>Fullname</th>
+        <td><input class="form-control" type="text" id="fullname" name="fullname"></td>
+    </tr>
+    <tr>
+        <th>DOB</th>
+        <td><input class="form-control" type="date" id="dob" name="dob"></td>
+    </tr>
+
+        <td><button  class="btn btn-primary mt-3 " hx-include="closest table" type="submit" hx-post="/saveStudent" hx-target="body" hx-swap="outerHTML">Save Student</button></td>
+    </tr>
+
+   </table>

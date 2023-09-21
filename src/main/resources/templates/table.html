@@ -1,0 +1,21 @@
+<table class="table table-striped mt-3">
+  <thead class="bg-primary text-white">
+  <tr>
+    <th>Full Name</th>
+    <th>DOB</th>
+    <th>Age</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="s:${students}">
+    <td th:text="${s.getFullname()}"></td>
+    <td th:text="${s.getDob()}"></td>
+    <td th:text="${s.getAge()}"></td>
+    <td>
+      <button class="btn btn-primary" th:attr="hx-get='/editStudent/' + ${s.getId()}" hx-target="closest tr" hx-swap="outerHTML">Edit</button>
+      <button class="btn btn-danger" th:attr="hx-get='/deleteStudent/' + ${s.getId()}" hx-confirm="Are you sure?" hx-target="body">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
