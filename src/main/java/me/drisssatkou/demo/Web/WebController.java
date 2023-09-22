@@ -17,7 +17,7 @@ public class WebController {
     @Autowired
     private StudentService studentService;
 
-    @GetMapping(path = "/index")
+    @GetMapping(path = {"/index","/"} )
     public String index(Model model) {
         model.addAttribute("students", studentService.getStudents());
 
@@ -33,7 +33,7 @@ public class WebController {
     //make a post request to save a student
     @PostMapping(path = "/saveStudent")
     public String saveStudent(
-            @RequestParam String fullname,
+            @RequestParam  String fullname,
             @RequestParam Date dob,
             Model model
     ) {
@@ -79,6 +79,18 @@ public class WebController {
              model.addAttribute("students", studentService.getStudentsLike(search));
         else model.addAttribute("students", studentService.getStudents());
         return "table";
+    }
+
+
+    @GetMapping(path = "/admin/students")
+    public String adminStudents(Model model) {
+        model.addAttribute("students", studentService.getStudents());
+        return "table";
+    }
+
+    @GetMapping(path = "/accessDenied")
+    public String accessDenied() {
+        return "accessDenied";
     }
 
 
